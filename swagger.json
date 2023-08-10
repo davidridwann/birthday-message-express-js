@@ -1,0 +1,20 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Birthday Message API TEST",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/": {
+        "get": {
+          "summary": "Get the root endpoint",
+          "responses": {
+            "200": {
+              "description": "Successful response"
+            }
+          }
+        }
+      }
+    }
+  }
+  

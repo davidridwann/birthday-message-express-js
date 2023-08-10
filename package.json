@@ -1,0 +1,30 @@
+{
+  "name": "birthday-message-test",
+  "version": "1.0.0",
+  "description": "Assesment test - back end developer - birthday message",
+  "main": "index.js",
+  "scripts": {
+    "babel-node": "babel-node",
+    "start": "babel-node ./src/bin/www",
+    "dev": "NODE_ENV=development nodemon --exec npm run babel-node -- ./src/bin/www -x",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "davidridwann",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/node": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.9.2",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "module-alias": "^2.2.3",
+    "nodemon": "^3.0.1"
+  },
+  "_moduleAliases": {
+    "@src": "src"
+  }
+}
