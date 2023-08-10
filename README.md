@@ -4,6 +4,7 @@
 Run the following command
 ```
 npm start
+```
 
 Project will be run in port `3000` (http://localhost:3000)
 
