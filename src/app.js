@@ -1,16 +1,18 @@
 require('module-alias/register');
 
 var express = require('express');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('../swagger.json'); 
+const bodyParser = require('body-parser');
 var cors = require('cors');
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../swagger.json'); 
 const route = require('@src/routes');
 
 var app = express();
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
 
 // Swagger API documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

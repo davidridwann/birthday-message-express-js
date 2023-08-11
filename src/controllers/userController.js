@@ -1,5 +1,5 @@
-const { responseError, responseSuccess } = require("@src/utils/output");
 const { User } = require('@src/models');
+const { responseError, responseSuccess } = require("@src/utils/output");
 const ApiErrorException = require("@src/exceptions/api-error.exception");
 
 const getUsers = async (req, res) => {
@@ -16,31 +16,29 @@ const getUsers = async (req, res) => {
 const createUsers = async (req, res) => {
   try {
     const {
-      firstname,
-      lastname,
+      firstName,
+      lastName,
       email,
       birthday,
       location
     } = req.body;
 
-    const checkLocation = await Location.findOne({ where: { zoneName: location } })
-    if (!checkLocation) throw new ApiErrorException('Invalid location!', 400);
-
     const user = await User.create({
-      firstname,
-      lastname,
+      firstName,
+      lastName,
       email,
       birthday,
-      locationId: checkLocation.id
+      locationId: location
     });
 
     const data = {
       ...user.toJSON(),
-      location: checkLocation,
+      location: location,
     }
 
     return responseSuccess(res, data);
   } catch (error) {
+    console.log(error)
     return responseError(res, error);
   }
 }
@@ -49,36 +47,34 @@ const updateUsers = async (req, res) => {
   try {
     const { id } = req.params;
     const {
-      firstname,
-      lastname,
+      firstName,
+      lastName,
       email,
       birthday,
       location
     } = req.body;
 
-    const checkLocation = await Location.findOne({ where: { zoneName: location } })
-    if (!checkLocation) throw new ApiErrorException('Invalid location!', 400);
-
     const user = await User.findOne({ where: { id } });
     if (!user) throw new ApiErrorException('User not found!', 400);
 
     user.update({
-      firstname,
-      lastname,
+      firstName,
+      lastName,
       email,
       birthday,
-      locationId: checkLocation.id
+      locationId: location
     })
 
     await user.save();
 
     const data = {
       ...user.toJSON(),
-      location: checkLocation,
+      location: location,
     }
 
     return responseSuccess(res, data);
   } catch (error) {
+    console.log(error)
     return responseError(res, error);
   }
 }
@@ -93,7 +89,7 @@ const deleteUsers = async (req, res) => {
       await user.destroy();
     }
 
-    return responseSuccess(res, { message: "Successfully deleted user!" });
+    return responseSuccess(res, { message: "Successfully!" });
   } catch (error) {
     return responseError(res, error);
   }

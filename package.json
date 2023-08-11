@@ -9,6 +9,7 @@
     "dev": "NODE_ENV=development nodemon --exec npm run babel-node -- ./src/bin/www -x",
     "migrate:up": "npx sequelize-cli db:migrate",
     "migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "migrate:seed": "npx sequelize-cli db:seed:all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "davidridwann",
@@ -17,15 +18,19 @@
     "@babel/core": "^7.22.10",
     "@babel/node": "^7.22.10",
     "@babel/preset-env": "^7.22.10",
+    "axios": "^1.4.0",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "joi": "^17.9.2",
+    "node-schedule": "^2.1.1",
     "pg": "^8.11.2",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.32.1",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.0"
+    "swagger-ui-express": "^5.0.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "module-alias": "^2.2.3",

@@ -1,6 +1,8 @@
 const express = require('express');
 const { responseSuccess } = require('@src/utils/output');
 const userRoute = require('./userRoute');
+const locationRoute = require('./locationRoute');
+const jobRoute = require('./jobRoute');
 
 const router = express.Router();
 
@@ -11,5 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.use('/user', userRoute);
+router.use('/location', locationRoute);
+router.use('/birthday-logs', jobRoute);
 
 module.exports = router;

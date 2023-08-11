@@ -4,8 +4,9 @@ const Joi = require("joi");
 const validateInputUser = async (req, res, next) => {
   try {
     const schema = Joi.object({
-      firstname: Joi.string().required(),
-      lastname: Joi.string().required(),
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      email: Joi.string().email().required(),
       birthday: Joi.date().required(),
       location: Joi.string().required(),
     });

@@ -6,6 +6,24 @@ Run the following command
 npm start
 ```
 
+### Run app (Development)
+Run the following command
+```
+npm run dev
+```
+
+### Run migrations
+Run the following command
+```
+npm run migrate:up
+```
+
+### Run seeders
+Run the following command
+```
+npm run migrate:seed
+```
+
 Project will be run in port `3000` (http://localhost:3000)
 
 ## API Documentation

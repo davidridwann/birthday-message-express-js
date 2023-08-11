@@ -2,28 +2,24 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('Locations', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID, // Set UUID data type
         defaultValue: Sequelize.UUIDV4 // Set default value as UUIDv4
       },
-      firstName: {
+      countryCode: {
         type: Sequelize.STRING
       },
-      lastName: {
+      countryName: {
         type: Sequelize.STRING
       },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
+      zoneName: {
+        type: Sequelize.STRING
       },
-      birthday: {
-        type: Sequelize.DATE
-      },
-      locationId: {
-        type: Sequelize.UUID
+      gmtOffset: {
+        type: Sequelize.BIGINT
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +32,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Locations');
   }
 };
