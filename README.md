@@ -1,4 +1,4 @@
-# Birthday Message - Backend Developer - Assessment Test
+# Birthday Message
 
 ### Run app
 Run the following command
